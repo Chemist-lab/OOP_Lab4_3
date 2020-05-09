@@ -1,0 +1,65 @@
+﻿[
+  {
+    "Date": "2012.08.24",
+    "Сity": "Kcharkiv",
+    "Pressure": "775",
+    "Temperature": "21",
+    "WindSpeed": "8"
+  },
+  {
+    "Date": "2002.07.24",
+    "Сity": "Stryi",
+    "Pressure": "800",
+    "Temperature": "25",
+    "WindSpeed": "1"
+  },
+  {
+    "Date": "2018.01.31",
+    "Сity": "New York",
+    "Pressure": "781",
+    "Temperature": "-1",
+    "WindSpeed": "2"
+  },
+  {
+    "Date": "1050.04.02",
+    "Сity": "Kievan Rus",
+    "Pressure": "770",
+    "Temperature": "11",
+    "WindSpeed": "6"
+  },
+  {
+    "Date": "2020.05.25",
+    "Сity": "Kyiv",
+    "Pressure": "750",
+    "Temperature": "16",
+    "WindSpeed": "13"
+  },
+  {
+    "Date": "2017.07.24",
+    "Сity": "Drogobych",
+    "Pressure": "780",
+    "Temperature": "24",
+    "WindSpeed": "3"
+  },
+  {
+    "Date": "2014.11.14",
+    "Сity": "Minsk",
+    "Pressure": "751",
+    "Temperature": "8",
+    "WindSpeed": "1.5"
+  },
+  {
+    "Date": "2018.08.05",
+    "Сity": "Boryslav",
+    "Pressure": "763",
+    "Temperature": "35",
+    "WindSpeed": "4"
+  },
+  {
+    "Date": "2034.09.12",
+    "Сity": "Truscawec",
+    "Pressure": "767",
+    "Temperature": "25",
+    "WindSpeed": "12"
+  }
+]

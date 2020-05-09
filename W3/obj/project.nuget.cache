@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GKbGHoaU0zQ8WEQ32XriAfE9r0pxfOU9g2ZhhkLAY77J9iMLAP9nC/i2k3QjdVeV+Xfdh4P+K8uYkPp4sB+5wA==",
+  "success": true,
+  "projectFilePath": "D:\\Labs\\OOP_LAB4\\W3\\W3\\W3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CHEMIST\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

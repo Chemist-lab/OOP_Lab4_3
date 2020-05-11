@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GKbGHoaU0zQ8WEQ32XriAfE9r0pxfOU9g2ZhhkLAY77J9iMLAP9nC/i2k3QjdVeV+Xfdh4P+K8uYkPp4sB+5wA==",
+  "dgSpecHash": "RCZtOtTbsrXOuVKLZwQr/BBNamBwAE50hXmQU6CulAkzaOLEywXhM67umLW3+o1ELj8KNR19jT7fyEL2Dq0WbQ==",
   "success": true,
-  "projectFilePath": "D:\\Labs\\OOP_LAB4\\W3\\W3\\W3.csproj",
+  "projectFilePath": "D:\\Labs\\OOP\\GIT\\3\\OOP_Lab4_3\\W3\\W3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CHEMIST\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],

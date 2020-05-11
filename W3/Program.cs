@@ -16,139 +16,229 @@ namespace W3
         {
             while(true)
             {
-                Console.WriteLine("             FAQ\n\n" +
-                    "Add weather data - press 'A'\nSearch weather data - press 'S'" +
-                    "\nShow all data - press 'T'\nClear console  - press 'Spacebar'\nExit - press 'Esc'");
-                var data = JsonConvert.DeserializeObject<List<Weather_Data>>(File.ReadAllText(FilePath));
-                if (Console.ReadKey().Key == ConsoleKey.A)
+                try 
                 {
-                    Console.Clear();
+                    Console.WriteLine("╔════════════╤══════════════════════════════╗");
+                    Console.WriteLine("   Hot key   │            Function       ");
+                    Console.WriteLine("╠════════════╪══════════════════════════════╣");
+                    Console.WriteLine("      A      │       Add weather data  ");
+                    Console.WriteLine("╠════════════╪══════════════════════════════╣");
+                    Console.WriteLine("      S      │ Search weather data by city  ");
+                    Console.WriteLine("╠════════════╪══════════════════════════════╣");
+                    Console.WriteLine("      D      │ Delete weather data by city ");
+                    Console.WriteLine("╠════════════╪══════════════════════════════╣");
+                    Console.WriteLine("      T      │      Show all weather data  ");
+                    Console.WriteLine("╠════════════╪══════════════════════════════╣");
+                    Console.WriteLine("    Space    │         Clear console  ");
+                    Console.WriteLine("╠════════════╪══════════════════════════════╣");
+                    Console.WriteLine("     Esc     │          Exit program  ");
+                    Console.WriteLine("╚════════════╧══════════════════════════════╝");
 
-                    Console.WriteLine("Enter Weather Data\n");
-                    Console.WriteLine("Date(date format - YY.MM.DD): ");
-                    string date = Console.ReadLine();
-                    Console.WriteLine("City: ");
-                    string city = Console.ReadLine();
-                    Console.WriteLine("Pressure: ");
-                    string pressure = Console.ReadLine();
-                    Console.WriteLine("Temperature: ");
-                    string temperature = Console.ReadLine();
-                    Console.WriteLine("Wind Speed: ");
-                    string windS = Console.ReadLine();
+                    var data = JsonConvert.DeserializeObject<List<Weather_Data>>(File.ReadAllText(FilePath));
 
-                    if (date != null && city != null && pressure != null && temperature != null && windS != null)
+                    int menuselect = 0;
+                    switch (Console.ReadKey().Key)
                     {
-                        data.Add(new Weather_Data { Date = date, Сity = city, Pressure = pressure, Temperature = temperature, WindSpeed = windS });
+                        case ConsoleKey.A:
+                            menuselect = 1;
+                            break;
+                        case ConsoleKey.S:
+                            menuselect = 2;
+                            break;
+                        case ConsoleKey.T:
+                            menuselect = 3;
+                            break;
+                        case ConsoleKey.Escape:
+                            menuselect = 4;
+                            break;
+                        case ConsoleKey.D:
+                            menuselect = 5;
+                            break;
                     }
-                    else
-                    {
-                        Console.WriteLine("          Error\nSome fileds are empty.\nTry again");
-                    }
-                    Console.Clear();
-                }
 
-                if (Console.ReadKey().Key == ConsoleKey.Spacebar)
-                {
-                    Console.Clear();
-                }
-                if (Console.ReadKey().Key == ConsoleKey.S)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Enter search city: ");
-                    string city = Console.ReadLine();
-                    if (Console.ReadLine() != null)
+                    if (menuselect == 1)
                     {
                         Console.Clear();
-                        Weather_Data FoundData = data.Find(found => found.Сity == city);
-                        Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                        Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
-                        Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-                        Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date,FoundData.Сity,FoundData.Pressure,FoundData.Temperature,FoundData.WindSpeed);
-                        Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
 
+                        Console.WriteLine("Enter Weather Data\n");
+                        Console.WriteLine("Date(date format - YY.MM.DD): ");
+                        string date = Console.ReadLine();
+                        Console.WriteLine("City: ");
+                        string city = Console.ReadLine();
+                        Console.WriteLine("Pressure: ");
+                        string pressure = Console.ReadLine();
+                        Console.WriteLine("Temperature: ");
+                        string temperature = Console.ReadLine();
+                        Console.WriteLine("Wind Speed: ");
+                        string windS = Console.ReadLine();
 
-                        Console.WriteLine("\nTo edit press 'E'");
-                        Console.WriteLine("\n\nTo edit press 'D'");
-                        if (Console.ReadKey().Key == ConsoleKey.E)
+                        if (date != null && city != null && pressure != null && temperature != null && windS != null)
                         {
-                            Console.WriteLine("\nEdit Weather Data\n");
-                            Console.WriteLine("Date(date format - YY.MM.DD): ");
-                            string date = Console.ReadLine();
-                            Console.WriteLine("City: ");
-                            string citi = Console.ReadLine();
-                            Console.WriteLine("Pressure: ");
-                            string pressure = Console.ReadLine();
-                            Console.WriteLine("Temperature: ");
-                            string temperature = Console.ReadLine();
-                            Console.WriteLine("Wind Speed: ");
-                            string windS = Console.ReadLine();
+                            data.Add(new Weather_Data { Date = date, Сity = city, Pressure = pressure, Temperature = temperature, WindSpeed = windS });
+                        }
+                        else
+                        {
+                            Console.WriteLine("          Error\nSome fileds are empty.\nTry again");
+                        }
+                        Console.Clear();
+                    }
 
-                            if (date ==null || citi == null || pressure == null || temperature == null || windS ==null)
-                            {
-                                Console.WriteLine("          Error\nSome fileds are empty.\nTry again");
-                            }
-                            FoundData.Date = date;
-                            FoundData.Сity = citi;
-                            FoundData.Pressure = pressure;
-                            FoundData.Temperature = temperature;
-                            FoundData.WindSpeed = windS;
+                    if (menuselect == 2)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Enter search city: ");
+                        string city = Console.ReadLine();
+                        if (Console.ReadLine() != null)
+                        {
                             Console.Clear();
-                            Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                            Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
-                            Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-                            Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
-                            Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
-                        }
-                        if (Console.ReadKey().Key == ConsoleKey.D)
-                        {
-                            data.RemoveAll(x => x.Сity == city);
+                            Weather_Data FoundData = data.Find(found => found.Сity == city);
+                            if (FoundData != null)
+                            {
+                                Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
+                                Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                                Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                                Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
+                                Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+
+
+                                Console.WriteLine("\nTo edit press 'E'");
+                                Console.WriteLine("\n\nTo edit press 'D'");
+                                if (Console.ReadKey().Key == ConsoleKey.E)
+                                {
+                                    Console.WriteLine("\nEdit Weather Data\n");
+                                    Console.WriteLine("Date(date format - YY.MM.DD): ");
+                                    string date = Console.ReadLine();
+                                    Console.WriteLine("City: ");
+                                    string citi = Console.ReadLine();
+                                    Console.WriteLine("Pressure: ");
+                                    string pressure = Console.ReadLine();
+                                    Console.WriteLine("Temperature: ");
+                                    string temperature = Console.ReadLine();
+                                    Console.WriteLine("Wind Speed: ");
+                                    string windS = Console.ReadLine();
+
+                                    if (date == null || citi == null || pressure == null || temperature == null || windS == null)
+                                    {
+                                        Console.WriteLine("          Error\nSome fileds are empty.\nTry again");
+                                    }
+                                    FoundData.Date = date;
+                                    FoundData.Сity = citi;
+                                    FoundData.Pressure = pressure;
+                                    FoundData.Temperature = temperature;
+                                    FoundData.WindSpeed = windS;
+                                    Console.Clear();
+                                    Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
+                                    Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                                    Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                                    Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
+                                    Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+                                }
+                                if (Console.ReadKey().Key == ConsoleKey.D)
+                                {
+                                    data.RemoveAll(x => x.Сity == city);
+                                }
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Error\n\n" +
+                            "City not found");
+                            }
+                             
+                            
                         }
                     }
-                }
 
-                if (Console.ReadKey().Key == ConsoleKey.T)
-                {
-                    Console.Clear();
-                    Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                    Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
-                    Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-                    for (int i = 0; i < data.Count; i++)
+                    if (menuselect == 3)
                     {
-                        Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", data[i].Date, data[i].Сity, data[i].Pressure, data[i].Temperature, data[i].WindSpeed);
-                        Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-
-                    }
-                    Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
-                    Console.WriteLine("\nTo sort by date press 'S'");
-                    if (Console.ReadKey().Key == ConsoleKey.S)
-                    {
-                        
                         Console.Clear();
-                        List<Weather_Data> SortData = data.OrderBy(o => o.Date).ToList();
                         Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
                         Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
                         Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
                         for (int i = 0; i < data.Count; i++)
                         {
-                            Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", SortData[i].Date, SortData[i].Сity, SortData[i].Pressure, SortData[i].Temperature, SortData[i].WindSpeed);
+                            Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", data[i].Date, data[i].Сity, data[i].Pressure, data[i].Temperature, data[i].WindSpeed);
                             Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+
                         }
                         Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+                        Console.WriteLine("\nTo sort by date press 'S'");
+                        if (Console.ReadKey().Key == ConsoleKey.S)
+                        {
+
+                            Console.Clear();
+                            List<Weather_Data> SortData = data.OrderBy(o => o.Date).ToList();
+                            Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
+                            Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                            Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", SortData[i].Date, SortData[i].Сity, SortData[i].Pressure, SortData[i].Temperature, SortData[i].WindSpeed);
+                                Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                            }
+                            Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+                        }
+                        if (Console.ReadKey().Key == ConsoleKey.Spacebar)
+                        {
+                            Console.Clear();
+                        }
                     }
+
+                    if (menuselect == 4)
+                    {
+                        Environment.Exit(0);
+                    }
+
+                    if (menuselect == 5)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Enter city to delete: ");
+                        string city = Console.ReadLine();
+                        if (Console.ReadLine() != null)
+                        {
+                            Console.Clear();
+                            Weather_Data FoundData = data.Find(found => found.Сity == city);
+                            if (FoundData != null)
+                            {
+                                Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
+                                Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                                Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                                Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
+                                Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+                                data.RemoveAll(x => x.Сity == city);
+                                Console.WriteLine("This information has been deleted");
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Error\n\n" +
+                            "City not found");
+                            }
+
+
+                        }
+                    }
+
                     if (Console.ReadKey().Key == ConsoleKey.Spacebar)
                     {
                         Console.Clear();
                     }
-                }
-                string serialize = JsonConvert.SerializeObject(data, Formatting.Indented);
-                if (serialize.Count() > 1)
-                {
-                    if (!File.Exists(FileName))
+
+                    string serialize = JsonConvert.SerializeObject(data, Formatting.Indented);
+                    if (serialize.Count() > 1)
                     {
-                        File.Create(FileName).Close();
+                        if (!File.Exists(FileName))
+                        {
+                            File.Create(FileName).Close();
+                        }
+                        File.WriteAllText(FilePath, serialize, Encoding.UTF8);
                     }
-                    File.WriteAllText(FilePath, serialize, Encoding.UTF8);
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message.ToString());
+                }
+                
             } 
         }
         static void Main(string[] args)

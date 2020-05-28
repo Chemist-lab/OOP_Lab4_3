@@ -21,13 +21,13 @@ namespace W3
                     Console.WriteLine("╔════════════╤══════════════════════════════╗");
                     Console.WriteLine("   Hot key   │            Function       ");
                     Console.WriteLine("╠════════════╪══════════════════════════════╣");
-                    Console.WriteLine("      A      │       Add weather data  ");
+                    Console.WriteLine("      A      │       Add new student  ");
                     Console.WriteLine("╠════════════╪══════════════════════════════╣");
-                    Console.WriteLine("      S      │ Search weather data by city  ");
+                    Console.WriteLine("      S      │ Search student by city  ");
                     Console.WriteLine("╠════════════╪══════════════════════════════╣");
-                    Console.WriteLine("      D      │ Delete weather data by city ");
+                    Console.WriteLine("      D      │ Delete student by city ");
                     Console.WriteLine("╠════════════╪══════════════════════════════╣");
-                    Console.WriteLine("      T      │      Show all weather data  ");
+                    Console.WriteLine("      T      │      Show all students base  ");
                     Console.WriteLine("╠════════════╪══════════════════════════════╣");
                     Console.WriteLine("    Space    │         Clear console  ");
                     Console.WriteLine("╠════════════╪══════════════════════════════╣");
@@ -60,21 +60,21 @@ namespace W3
                     {
                         Console.Clear();
 
-                        Console.WriteLine("Enter Weather Data\n");
-                        Console.WriteLine("Date(date format - YY.MM.DD): ");
-                        string date = Console.ReadLine();
+                        Console.WriteLine("Enter Student Data\n");
+                        Console.WriteLine("Name: ");
+                        string name = Console.ReadLine();
                         Console.WriteLine("City: ");
                         string city = Console.ReadLine();
-                        Console.WriteLine("Pressure: ");
-                        string pressure = Console.ReadLine();
-                        Console.WriteLine("Temperature: ");
-                        string temperature = Console.ReadLine();
-                        Console.WriteLine("Wind Speed: ");
-                        string windS = Console.ReadLine();
+                        Console.WriteLine("Success: ");
+                        string success = Console.ReadLine();
+                        Console.WriteLine("Point: ");
+                        string point = Console.ReadLine();
+                        Console.WriteLine("Position in group: ");
+                        string ngroup = Console.ReadLine();
 
-                        if (date != null && city != null && pressure != null && temperature != null && windS != null)
+                        if (name != null && city != null && success != null && point != null && ngroup != null)
                         {
-                            data.Add(new Weather_Data { Date = date, Сity = city, Pressure = pressure, Temperature = temperature, WindSpeed = windS });
+                            data.Add(new Weather_Data { Name = name, Сity = city, Success = success, Point = point, NGroup = ngroup });
                         }
                         else
                         {
@@ -86,18 +86,18 @@ namespace W3
                     if (menuselect == 2)
                     {
                         Console.Clear();
-                        Console.WriteLine("Enter search city: ");
-                        string city = Console.ReadLine();
+                        Console.WriteLine("Enter search name: ");
+                        string nam = Console.ReadLine();
                         if (Console.ReadLine() != null)
                         {
                             Console.Clear();
-                            Weather_Data FoundData = data.Find(found => found.Сity == city);
+                            Weather_Data FoundData = data.Find(found => found.Name == nam);
                             if (FoundData != null)
                             {
                                 Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                                Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                                Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
                                 Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-                                Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
+                                Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", FoundData.Name, FoundData.Сity, FoundData.Success, FoundData.Point, FoundData.NGroup);
                                 Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
 
 
@@ -105,44 +105,44 @@ namespace W3
                                 Console.WriteLine("\n\nTo edit press 'D'");
                                 if (Console.ReadKey().Key == ConsoleKey.E)
                                 {
-                                    Console.WriteLine("\nEdit Weather Data\n");
-                                    Console.WriteLine("Date(date format - YY.MM.DD): ");
-                                    string date = Console.ReadLine();
+                                    Console.WriteLine("\nEdit Student Data\n");
+                                    Console.WriteLine("Name: ");
+                                    string name = Console.ReadLine();
                                     Console.WriteLine("City: ");
-                                    string citi = Console.ReadLine();
-                                    Console.WriteLine("Pressure: ");
-                                    string pressure = Console.ReadLine();
-                                    Console.WriteLine("Temperature: ");
-                                    string temperature = Console.ReadLine();
-                                    Console.WriteLine("Wind Speed: ");
-                                    string windS = Console.ReadLine();
+                                    string city = Console.ReadLine();
+                                    Console.WriteLine("Success: ");
+                                    string success = Console.ReadLine();
+                                    Console.WriteLine("Point: ");
+                                    string point = Console.ReadLine();
+                                    Console.WriteLine("Position in group: ");
+                                    string ngroup = Console.ReadLine();
 
-                                    if (date == null || citi == null || pressure == null || temperature == null || windS == null)
+                                    if (name == null || city == null || success == null || point == null || ngroup == null)
                                     {
                                         Console.WriteLine("          Error\nSome fileds are empty.\nTry again");
                                     }
-                                    FoundData.Date = date;
-                                    FoundData.Сity = citi;
-                                    FoundData.Pressure = pressure;
-                                    FoundData.Temperature = temperature;
-                                    FoundData.WindSpeed = windS;
+                                    FoundData.Name = name;
+                                    FoundData.Сity = city;
+                                    FoundData.Success = success;
+                                    FoundData.Point = point;
+                                    FoundData.NGroup = ngroup;
                                     Console.Clear();
                                     Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                                    Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                                    Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
                                     Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-                                    Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
+                                    Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", FoundData.Name, FoundData.Сity, FoundData.Success, FoundData.Point, FoundData.NGroup);
                                     Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
                                 }
                                 if (Console.ReadKey().Key == ConsoleKey.D)
                                 {
-                                    data.RemoveAll(x => x.Сity == city);
+                                    data.RemoveAll(x => x.Name == nam);
                                 }
                             }
                             else
                             {
                                 Console.Clear();
                                 Console.WriteLine("Error\n\n" +
-                            "City not found");
+                            "Student not found");
                             }
                              
                             
@@ -153,27 +153,58 @@ namespace W3
                     {
                         Console.Clear();
                         Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                        Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                        Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
                         Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
                         for (int i = 0; i < data.Count; i++)
                         {
-                            Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", data[i].Date, data[i].Сity, data[i].Pressure, data[i].Temperature, data[i].WindSpeed);
+                            Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", data[i].Name, data[i].Сity, data[i].Success, data[i].Point, data[i].NGroup);
                             Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-
                         }
                         Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
-                        Console.WriteLine("\nTo sort by date press 'S'");
-                        if (Console.ReadKey().Key == ConsoleKey.S)
+                        Console.WriteLine("\nTo sort by points press 'P'");
+                        Console.WriteLine("\nTo sort by name press 'N'");
+                        Console.WriteLine("\nTo sort by position in group press 'G'");
+                        if (Console.ReadKey().Key == ConsoleKey.P)
                         {
 
                             Console.Clear();
-                            List<Weather_Data> SortData = data.OrderBy(o => o.Date).ToList();
+                            List<Weather_Data> SortData = data.OrderBy(o => o.Point).ToList();
                             Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                            Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                            Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
                             Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
                             for (int i = 0; i < data.Count; i++)
                             {
-                                Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", SortData[i].Date, SortData[i].Сity, SortData[i].Pressure, SortData[i].Temperature, SortData[i].WindSpeed);
+                                Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", SortData[i].Name, SortData[i].Сity, SortData[i].Success, SortData[i].Point, SortData[i].NGroup);
+                                Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                            }
+                            Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+                        }
+                        if (Console.ReadKey().Key == ConsoleKey.N)
+                        {
+
+                            Console.Clear();
+                            List<Weather_Data> SortData = data.OrderBy(o => o.Name).ToList();
+                            Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
+                            Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
+                            Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", SortData[i].Name, SortData[i].Сity, SortData[i].Success, SortData[i].Point, SortData[i].NGroup);
+                                Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                            }
+                            Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
+                        }
+                        if (Console.ReadKey().Key == ConsoleKey.G)
+                        {
+
+                            Console.Clear();
+                            List<Weather_Data> SortData = data.OrderBy(o => o.NGroup).ToList();
+                            Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
+                            Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
+                            Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", SortData[i].Name, SortData[i].Сity, SortData[i].Success, SortData[i].Point, SortData[i].NGroup);
                                 Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
                             }
                             Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
@@ -192,20 +223,20 @@ namespace W3
                     if (menuselect == 5)
                     {
                         Console.Clear();
-                        Console.WriteLine("Enter city to delete: ");
-                        string city = Console.ReadLine();
+                        Console.WriteLine("Enter name to delete: ");
+                        string name = Console.ReadLine();
                         if (Console.ReadLine() != null)
                         {
                             Console.Clear();
-                            Weather_Data FoundData = data.Find(found => found.Сity == city);
+                            Weather_Data FoundData = data.Find(found => found.Name == name);
                             if (FoundData != null)
                             {
                                 Console.WriteLine("╔════════════╤════════════╤══════════╤═════════════╤══════════════╗");
-                                Console.WriteLine("     Date    │    City    │ Pressure │ Temperature │  Wind speed");
+                                Console.WriteLine("     Name    │    City    │  Success │    Point    │ Pos in Group");
                                 Console.WriteLine("╠════════════╪════════════╪══════════╪═════════════╪══════════════╣");
-                                Console.WriteLine("{0,12} {1, 12} {2, 8} {3, 11} {4, 12}", FoundData.Date, FoundData.Сity, FoundData.Pressure, FoundData.Temperature, FoundData.WindSpeed);
+                                Console.WriteLine("{0,10} {1, 10} {2, 10} {3, 12} {4, 13}", FoundData.Name, FoundData.Сity, FoundData.Success, FoundData.Point, FoundData.NGroup);
                                 Console.WriteLine("╚════════════╧════════════╧══════════╧═════════════╧══════════════╝");
-                                data.RemoveAll(x => x.Сity == city);
+                                data.RemoveAll(x => x.Name == name);
                                 Console.WriteLine("This information has been deleted");
                             }
                             else
@@ -249,36 +280,36 @@ namespace W3
 
     public class Weather_Data
     {
-        private string date;
+        private string name;
         private string city;
-        private string pressure;
-        private string temperature;
-        private string windSpeed;
+        private string point;
+        private string success;
+        private string nGroup;
 
-        public string Date
+        public string Name
         {
-            get { return date; }
-            set { date = value; }
+            get { return name; }
+            set { name = value; }
         }
         public string Сity
         {
             get { return city; }
             set { city = value; }
         }
-        public string Pressure
+        public string Success
         {
-            get { return pressure; }
-            set { pressure = value; }
+            get { return success; }
+            set { success = value; }
         }
-        public string Temperature
+        public string Point
         {
-            get { return temperature; }
-            set { temperature = value; }
+            get { return point; }
+            set { point = value; }
         }
-        public string WindSpeed
+        public string NGroup
         {
-            get { return windSpeed; }
-            set { windSpeed = value; }
+            get { return nGroup; }
+            set { nGroup = value; }
         }
 
     }

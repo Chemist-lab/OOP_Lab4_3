@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Labs\\OOP\\GIT\\3\\OOP_Lab4_3\\W3\\W3.csproj",
+      "projectUniqueName": "D:\\Labs\\OOP\\GIT\\3 - Copy\\OOP_Lab8_1\\W3\\W3.csproj",
       "projectName": "W3",
-      "projectPath": "D:\\Labs\\OOP\\GIT\\3\\OOP_Lab4_3\\W3\\W3.csproj",
+      "projectPath": "D:\\Labs\\OOP\\GIT\\3 - Copy\\OOP_Lab8_1\\W3\\W3.csproj",
       "packagesPath": "C:\\Users\\CHEMIST\\.nuget\\packages\\",
-      "outputPath": "D:\\Labs\\OOP\\GIT\\3\\OOP_Lab4_3\\W3\\obj\\",
+      "outputPath": "D:\\Labs\\OOP\\GIT\\3 - Copy\\OOP_Lab8_1\\W3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CHEMIST\\AppData\\Roaming\\NuGet\\NuGet.Config",
